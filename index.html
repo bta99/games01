@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        background-color: aquamarine;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .play_start_background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: aquamarine;
+        z-index: 99;
+        transition: all 2.5s;
+    }
+
+    .btnplay:hover {
+        background-color: pink;
+    }
+
+    .box {
+        position: absolute;
+        width: 33.33%;
+        height: 33.33%;
+        background-color: darkcyan;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transition: all 2s;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .boxitem {
+        width: 50%;
+        height: 50%;
+        background-color: blueviolet;
+        transition: all 1.5s;
+        cursor: pointer;
+        border: solid 1px bisque;
+    }
+
+    .boxitem img {
+        width: 100%;
+        height: 100%;
+        transition: all 1.5s;
+        opacity: 0;
+    }
+
+    /* .b1{
+        background-color:aqua;
+    }
+    .b3{
+        background-color: aqua;
+    }
+    .b2{
+        background-color: gray;
+    }
+    .b4{
+        background-color: gray;
+    } */
+    .container button {
+        position: absolute;
+        left: 50%;
+        top: 90px;
+        transform: translateX(-50%);
+        border: none;
+        width: 100px;
+        height: 30px;
+        background-color: royalblue;
+        border-radius: 5px 5px;
+        color: white;
+    }
+
+    .container h3 {
+        position: absolute;
+        top: 5px;
+        font-family: cursive;
+    }
+
+    .container h4 {
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        transform: translateX(-50%);
+        display: inline-block;
+
+    }
+
+    .container p {
+        display: inline-block;
+    }
+
+    .process-bar {
+        width: 200px;
+        height: 20px;
+        background-color: transparent;
+        border: solid 2px gray;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 90;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .bar-child {
+        width: 90px;
+        height: 13px;
+        background-color: magenta;
+        /* border: solid 2px gray; */
+        transition: all 0.5s;
+        position: absolute;
+        left: 0;
+    }
+
+    .btnplay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 100;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 30px;
+        border: none;
+        border-radius: 5px 5px;
+        background-color: royalblue;
+        color: white;
+        transition: all 0.5s;
+        cursor: pointer;
+    }
+.huongdan{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 90;
+    background-color: white;
+    border-radius: 5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:all 0.5s;
+}
+.huongdan .btnok{
+    position: absolute;
+    top:60%;
+}
+.btnreset{
+    position: absolute;
+}
+    @media screen and (max-width:480px) {
+        .box {
+            width: 300px;
+            height: 30%;
+        }
+    }
+
+    @media screen and (max-width:360px){
+        .huongdan{
+            width: 300px;
+            height: 350px;
+        }
+    }
+</style>
+
+<body>
+    <button class="btnplay">play</button>
+    <div class="container">
+        <h1
+            style="position: absolute;top:-5%;left: 50%;transform: translate(-50%,-50%);z-index: 100;transition: all 1.5s;">
+            Hello Guy !</h1>
+        <div class="play_start_background"></div>
+        <div class="huongdan">
+            <h3>Cách Chơi</h3>
+            <p>Tìm Các Cặp Hình Giống Nhau!</p>
+            <button class="btnok">Đã Hiểu</button>
+        </div>
+        <h3>GAME DEMO 1</h3>
+        <button class = "btnreset">RESET</button>
+        <h4>Score: <p class="score">0</p>
+        </h4>
+        <div class="box">
+            <div class="boxitem b1">
+                <img src="https://vnn-imgs-f.vgcloud.vn/2021/07/31/10/mbappe-real-madrid.jpg" alt="" class="1">
+            </div>
+            <div class="boxitem b2">
+                <img src="https://rockandbluescruise.com/wp-content/uploads/2020/10/tieu-su-ronaldo.jpg" alt=""
+                    class="2">
+            </div>
+            <div class="boxitem b3">
+                <img src="https://rockandbluescruise.com/wp-content/uploads/2020/10/tieu-su-ronaldo.jpg" alt=""
+                    class="2">
+            </div>
+            <div class="boxitem b4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/230px-Lionel_Messi_20180626.jpg"
+                    alt="" class="1">
+            </div>
+
+            <div class="boxitem b3">
+                <img src="https://vnn-imgs-f.vgcloud.vn/2021/07/31/10/mbappe-real-madrid.jpg" alt="" class="2">
+            </div>
+            <div class="boxitem b4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/230px-Lionel_Messi_20180626.jpg"
+                    alt="" class="1">
+            </div>
+            <!-- <div class="boxitem"></div>
+            <div class="boxitem"></div>
+            <div class="boxitem"></div>
+            <div class="boxitem"></div>
+            <div class="boxitem"></div> -->
+        </div>
+    </div>
+    <script>
+        let btn = document.querySelectorAll('.boxitem');
+        let box = document.querySelector('.box');
+        let img = document.querySelectorAll('.boxitem img');
+        let src = img[0].getAttribute('src');
+        let btnreset = document.querySelector('.container .btnreset');
+        let diem = document.querySelector('.container .score');
+        let childbar = document.querySelector('.bar-child');
+        let btnplay = document.querySelector(' .btnplay');
+        let text = document.querySelector('.container h1');
+        let play_start_bg = document.querySelector('.play_start_background');
+        let btnok = document.querySelector('.huongdan .btnok');
+        let huongdan = document.querySelector('.huongdan');
+        console.log(btnok);
+        let d = 10;
+        // process();
+
+        btnok.addEventListener('click',()=>{
+            // console.log("helo");
+            huongdan.style.opacity = '0';
+            huongdan.style.visibility = 'hidden';
+        })
+        btnplay.onclick = () => {
+            // console.log('hello');
+            btnplay.style.opacity = '0';
+            text.style.top = '120%';
+            play_start_bg.style.transform = 'translateX(-100%)';
+        }
+        let score = 0;
+        let tam = '';
+        let count = 0;
+        let click = 1;
+
+        btnreset.onclick = () => {
+            for (let i = 0; i < img.length; i++) {
+                img[i].style.opacity = '0';
+                btn[i].style.backgroundColor = 'blueviolet';
+                tam = '';
+                score = 0;
+                count = 0;
+                diem.innerHTML = score;
+                }
+                for (let j = 0; j < img.length / 2; j++) {
+                let temp = img[j].getAttribute('src');
+                img[j].setAttribute('src', img[img.length - 1 - j].getAttribute('src'));
+                img[img.length - 1 - j].setAttribute('src', temp);
+            }
+            console.log("ok");
+        }
+
+      
+       
+           
+        
+
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].onclick = () => {
+                //    img[i].style.opacity = '1';
+                if (tam == '') {
+                    img[i].style.opacity = '1';
+                    tam = img[i].getAttribute('src');
+                    count++;
+                    // console.log(count);
+                }
+                else {
+                    img[i].style.opacity = '1';
+                    if (img[i].getAttribute('src') == tam) {
+                        //    img[i].style.opacity = '1';
+                        count++;
+                        console.log(count);
+                    }
+                    else {
+                       
+                        for (let j = 0; j < img.length; j++) {
+                            img[j].style.opacity = '0';
+                            count = 0;
+                            tam = '';
+                        }
+                        console.log("fucking");
+                        // count = 1;
+                    }
+                    // if (count == 1) {
+                    //     img[i].style.opacity = '1';
+                    //     for (let a = 0; a < img.length; a++) {
+                    //         img[a].style.opacity = '0';
+                    //         btn[a].style.backgroundColor = 'red';
+                    //     }
+                    //     console.log('helo');
+                    // }
+                    //    console.log(count);
+                }
+                box.addEventListener('transitionend', () => {
+                    if (count == 2) {
+                        console.log(tam);
+                        for (let i = 0; i < img.length; i++) {
+                            if (img[i].getAttribute('src') == tam) {
+                                img[i].style.opacity = '0';
+                                btn[i].style.backgroundColor = 'white';
+                            }
+                        }
+                        score++;
+                        count = 0;
+                        tam = '';
+                        diem.innerHTML = score;
+                    }
+                })
+
+                if (score == img.length / 2) {
+                    alert("YOU WIN !");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
